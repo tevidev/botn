@@ -6,7 +6,7 @@ import threading
 
 class MongoClient:
     def __init__(self):
-        self.client = pymongo.MongoClient("mongodb+srv://hamixl:HamiTevi_4074@amtevixl.az3mcvh.mongodb.net/?retryWrites=true&w=majority&appName=Amtevixl")
+        self.client = pymongo.MongoClient("mongodb://mongo:iohLTlUNDScVvMKDzNCTcAhZgukJSQQD@maglev.proxy.rlwy.net:51837")
         self.db = self.client["katsume"]
         self.users = self.db["users"]
         self.grupo = self.db["grupo"]
@@ -129,3 +129,4 @@ def expulse_user():
 
 thread2 = threading.Thread(target=expulse_user)
 thread2.start()
+
