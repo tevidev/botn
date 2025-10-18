@@ -1,4 +1,4 @@
-from mongo_data import MongoClient
+from procesos.mongo_data import MongoClient
 import datetime
 
 OWNER_ID = 123456789  # <-- replace with your Telegram ID
