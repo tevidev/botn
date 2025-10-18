@@ -29,7 +29,7 @@ default_gates = [
     {"comando": "/pp", "nombre": "Paypal", "estado": "✅"},
     {"comando": "/vbv", "nombre": "Braintree 3D", "estado": "✅"},
     {"comando": "/chk", "nombre": "Stripe Charge", "estado": "✅"},
-    {"comando": "/au", "nombre": "Stripe Auth", "estado": "✅"},
+    {"comando": "/stp", "nombre": "Stripe Auth", "estado": "✅"},
     {"comando": "/ss", "nombre": "Stripe Save", "estado": "✅"},
     {"comando": "/bin", "nombre": "Bin Lookup", "estado": "✅"},
     {"comando": "/key", "nombre": "Key Activation", "estado": "✅"},
