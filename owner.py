@@ -1,13 +1,12 @@
 import datetime
 from procesos.mongo_data import MongoClient
 
-# Replace with your real Telegram ID
-OWNER_ID = 7447317982
+# === CONFIG ===
+OWNER_ID = 7447317982  # <-- your Telegram ID
 
-# Connect to your database
 db = MongoClient()
 
-# ----- CREATE OWNER -----
+# === 1. CREATE OWNER USER ===
 db.users.delete_one({"user_id": OWNER_ID})
 
 db.users.insert_one({
@@ -24,17 +23,20 @@ db.users.insert_one({
 
 print(f"✅ Owner user created successfully for ID {OWNER_ID}")
 
-# ----- ADD GATES -----
-# Matches your mongo_data structure — only adds to 'gates' collection
+# === 2. ADD/UPDATE GATES ===
+# These gates are based on real commands your bot uses (from your files)
 default_gates = [
-    {"comando": "/pp", "estado": "✅"},
-    {"comando": "/chk", "estado": "✅"},
-    {"comando": "/au", "estado": "✅"},
-    {"comando": "/vbv", "estado": "✅"},
-    {"comando": "/ss", "estado": "✅"},
+    {"comando": "/pp", "nombre": "Paypal", "estado": "✅"},
+    {"comando": "/vbv", "nombre": "Braintree 3D", "estado": "✅"},
+    {"comando": "/chk", "nombre": "Stripe Charge", "estado": "✅"},
+    {"comando": "/au", "nombre": "Stripe Auth", "estado": "✅"},
+    {"comando": "/ss", "nombre": "Stripe Save", "estado": "✅"},
+    {"comando": "/bin", "nombre": "Bin Lookup", "estado": "✅"},
+    {"comando": "/key", "nombre": "Key Activation", "estado": "✅"},
+    {"comando": "/register", "nombre": "Register", "estado": "✅"},
 ]
 
 for gate in default_gates:
     db.collection_cuatro.update_one({"comando": gate["comando"]}, {"$set": gate}, upsert=True)
 
-print(f"✅ Gates added/updated successfully ({len(default_gates)} total)")
+print(f"✅ Gates inserted/updated successfully ({len(default_gates)} total)")
