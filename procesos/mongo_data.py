@@ -6,7 +6,7 @@ import threading
 
 class MongoClient:
     def __init__(self):
-        self.client = pymongo.MongoClient("mongodb://mongo:GjrRVvLqawIqZRwhCNVeFHPSOqwleYYs@viaduct.proxy.rlwy.net:49465")
+        self.client = pymongo.MongoClient("mongodb+srv://hamixl:HamiTevi_4074@amtevixl.az3mcvh.mongodb.net/?retryWrites=true&w=majority&appName=Amtevixl")
         self.db = self.client["katsume"]
         self.users = self.db["users"]
         self.grupo = self.db["grupo"]
